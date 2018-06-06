@@ -9,7 +9,7 @@ Into Robotics
 int servoPin = 9;
  
 Servo servo;  
-int 
+int Zaehler = 0; //Variable zum zählen der Anzahl der durchgeführten Öffnungen
 int inPin = 7; // Pushbutton Pin.
 int val = 0; // Variable zum Lesen des Pin-Status 
 int servoAngle = 0;   // servo position in degrees
@@ -32,6 +32,6 @@ void loop()
    delay(10000);          // Wait 10 seconds
    servo.write(90);      // Schließt den Briefkasten
    delay(10000);          // Wait 1 second
-   
+   Zaehler = Zaehler + 1 ; // Zaehler der Anzahl der Öffnungen erhöht sich um eins.
   }
 }

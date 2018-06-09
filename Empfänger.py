@@ -67,39 +67,6 @@ class Arduino(object):
             100, self._periodic_socket_check
         )
 
-class LedButton(object):
-    '''A button that controls one LED connected to an Arduino
-    while providing visual feedback of the current button state
-    '''
-
-    def __init__(self, window, arduino):
-        self.button= tk.Button(
-            window,
-            text='Led',
-            command= self.on_pressed
-        )
-
-        self.button.pack()
-
-        self.arduino= arduino
-
-        self.set_state(False)
-
-    def set_state(self, state):
-        if state:
-            self.arduino.send_command('on')
-            self.button.config(relief='sunken')
-            self.state= True
-
-        else:
-            self.arduino.send_command('off')
-            self.button.config(relief='raised')
-            self.state= False
-
-    def on_pressed(self):
-        self.set_state(not self.state)
-
-
 class LightCenterWindow(object):
     def __init__(self):
         # Setup the empty window
@@ -117,10 +84,10 @@ class LightCenterWindow(object):
         self.setup_content()
 
     def on_received(self, line):
-        if(line == 0):
-            self.btn_label_var.set('Sie haben keine Post')
+        if(line == 'y'):
+            self.btn_label_var.set("1");
         else :
-            self.btn_label_var.set('Anzahl der neuen Briefe : ');   
+            self.btn_label_var.set('0');   
     def setup_window(self):
         self.window= tk.Tk()
         self.window.title('Poststatus')
@@ -132,7 +99,7 @@ class LightCenterWindow(object):
 
     def setup_content(self):
         self.btn_label_var= tk.StringVar(self.window)
-        self.btn_label_var.set('Anzahl der neuen Briefe : ');
+        self.btn_label_var.set('Anzahl der neuen Briefe:');
 
         self.btn_label = tk.Label(
             self.window,
@@ -141,7 +108,7 @@ class LightCenterWindow(object):
 
         self.btn_label.pack()
 
-        self.btn= LedButton(self.window, self.arduino)
+        
 
     def run(self):
         'Execute the tkinter mainloop to display the Light center window'

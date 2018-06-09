@@ -18,16 +18,6 @@ int servoPin = 8;
 
 void setup()
 {
-  Serial.println("Starting server...");
-  esp_server.begin(&esp_serial, "AndroidAP", "fdqz0801", 30303);
-  Serial.println("...server is running");
-
-   char ip[16];
-  esp_server.my_ip(ip, 16);
-
-  Serial.print("My ip: ");
-  Serial.println("ip");
-  
   Serial.begin(9600);
   esp_serial.begin(9600);
   servo.attach(servoPin);
@@ -45,11 +35,18 @@ void setup()
      connect pin 3 or 2 of the Arduino with the Wifi-shield
      to pin 1(TX) of the other Arduino and use the Serial monitor
      to see the Wifi commands and error-messages. */
-  
+  Serial.println("Starting server...");
+  esp_server.begin(&esp_serial, "AndroidAP", "fdqz0801", 30303);
+  Serial.println("...server is running");
+
 
   /* Get and print the IP-Address the python program
      should connect to */
+  char ip[16];
+  esp_server.my_ip(ip, 16);
 
+  Serial.print("My ip: ");
+  Serial.println(ip);
 }
 
 void loop()
@@ -58,12 +55,12 @@ void loop()
  val = digitalRead(inPin); //Auslesen ob Button gedrückt wurde.
   if (val == LOW) //Wenn Button gedrückt wurde. 
   {   
-   servo.write(45);      /* öffnet den Briefkasten für 10 Sekunden */
-   delay(10000);          
-   servo.write(90);      /* Schließt den Briefkasten */
-             
-   Zaehler ++;            /* Zählt wie viele Briefe eingeworfen wurden.*/
-   esp_server.write("Zaehler\n");
+   servo.write(45);      // öffnet den Briefkasten für 10 Sekunden
+   delay(10000);          // Wait 10 seconds
+   servo.write(90);      // Schließt den Briefkasten
+   delay(10000);          // Wait 1 second
+   Zaehler ++;
+   esp_server.write("y\n");
    
   }
  

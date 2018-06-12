@@ -49,6 +49,7 @@ void loop() {
       if (millis() - timer10 >= 100000) { /* nach 10 Sekunden*/
        servo1.write(-90);      // Schließt den Briefkasten 
        esp_server.write("y");
+       timer10 = 0;
    
   }
   if (Zaehler > 0){

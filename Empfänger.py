@@ -69,7 +69,7 @@ class Arduino(object):
 
 class LightCenterWindow(object):
     def __init__(self):
-        # Setup the empty window
+        """ Setup the empty window """
         self.setup_window()
 
         host= '192.168.43.217'
@@ -82,12 +82,11 @@ class LightCenterWindow(object):
         )
 
         self.setup_content()
-
     def on_received(self, line):
-        if(line == 'y'):
-            self.btn_label_var.set("1");
+        if(line == "n"):
+            self.btn_label_var.set(1);
         else :
-            self.btn_label_var.set('0');   
+            self.btn_label_var.set(0);   
     def setup_window(self):
         self.window= tk.Tk()
         self.window.title('Poststatus')
@@ -99,7 +98,7 @@ class LightCenterWindow(object):
 
     def setup_content(self):
         self.btn_label_var= tk.StringVar(self.window)
-        self.btn_label_var.set('Anzahl der neuen Briefe:');
+        self.btn_label_var.set("Sie haben Post !");
 
         self.btn_label = tk.Label(
             self.window,

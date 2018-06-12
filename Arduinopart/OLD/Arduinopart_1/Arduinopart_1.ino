@@ -10,19 +10,24 @@ SoftwareSerial esp_serial(3, 2);
 EspServer esp_server;
 
 Servo servo ;
-int inPin = 7; // Pushbutton Pin.
-int val = 0; // Variable zum Lesen des Pin-Status 
+int inPin = 10; // Pushbutton Pin.
+int inPin2 = 5; //Pushbutton zum Briefkastenöffnen
+int val = 0; // Variable zum Lesen des 1. Buttons 
+int val2 = 0; // Variable zum auslesen des 2. Buttons
 int servoAngle = 0;   // servo position in degrees
-int Zaehler = 0;
-int servoPin = 8;
+int Zaehler = 0;  //Zählt wie viele Briefe gekommen sind
+int servoPin = 8; // Pin für den Servo der den Briefkasten öffnet
+int LED1 = 11;   // LED die am Briefkasten anzeigt , dass Post gekommen ist.
+int a ;
 
 void setup()
 {
   Serial.begin(9600);
   esp_serial.begin(9600);
   servo.attach(servoPin);
-  pinMode(inPin, INPUT);    // declare pushbutton as input
-
+  pinMode(inPin, INPUT_PULLUP);    // declare pushbutton as input
+   pinMode(inPin2, INPUT);
+   pinMode (LED1 , OUTPUT);
   /* Connect to the wireless network with the name "GDI"
      and password "password", change these to match
      your wifi settings.
@@ -50,22 +55,36 @@ void setup()
 }
 
 void loop()
-{
-
+{  
+  if (Zaehler == 0)
+  {
+  digitalWrite (11 , HIGH);
+  delay(1000);
+  Zaehler++ ;
+  return(Zaehler);
+  }
+  delay(2000);
+   Zaehler ++;
+ val2 = digitalRead(inPin2);
  val = digitalRead(inPin); //Auslesen ob Button gedrückt wurde.
-  if (val == LOW) //Wenn Button gedrückt wurde. 
+  if (val == HIGH) //Wenn Button gedrückt wurde. 
   {   
+   Zaehler ++;
+   esp_server.write(Zaehler);
    servo.write(45);      // öffnet den Briefkasten für 10 Sekunden
    delay(10000);          // Wait 10 seconds
    servo.write(90);      // Schließt den Briefkasten
-   delay(10000);          // Wait 1 second
-   Zaehler ++;
-   esp_server.write("y\n");
+   
    
   }
+  if (val2 == LOW) 
+  {
+   int Zaehler = 0;
+   esp_server.write(Zaehler); 
+  }
+  
  
-
-
-    
+  
+  
   
 }

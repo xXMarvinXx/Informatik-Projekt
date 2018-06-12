@@ -39,33 +39,26 @@ void setup()
 
 
 void loop() {
-
-  millis();
-
   val1 = digitalRead(inPin1); //Auslesen ob Button gedrückt wurde.
   val2 = digitalRead(inPin2); // Auslesen ob Button zum rausnehmen der Briefe geöffnet wurde.
 
   if (val1 == LOW) //Wenn Button gedrückt wurde.
   {
     servo1.write(0);
-<<<<<<< HEAD
-    timer10 = millis();
-    timer1 = millis();
     Zaehler ++;
     servo1.write(+90);
-  }
+    timer10 = millis();
   if (millis() - timer10 >= 100000) { /* nach 10 Sekunden*/
     servo1.write(-90);      // Schließt den Briefkasten
     timer10 = millis();
-
+  }
   }
   if (Zaehler > 0) {
     digitalWrite(led , HIGH); /* Wenn Post da ist lass die LED leuchten. */
   }
   if (val2 == LOW) /*Wenn reset Button gedrückt wurde */
   {
-    Zaehler = 0;
-    /* setzte den Post-Zaehler auf 0 zurück */
+    Zaehler = 0; 
     if (Zaehler == 0)
     {
       digitalWrite (led , LOW);
@@ -74,44 +67,7 @@ void loop() {
   }
   if (millis() - timer1 >= 10000)
   { 
-    esp_server.write('y');
     timer1 = millis();
   }
-=======
-    /*timer1 = millis(); */
-    Zaehler ++;
-    /* if (millis() - timer1 >= 10000) {
-       servo1.write(+90);
-       timer10 = millis();
-      }
-      if (millis() - timer10 >= 100000) {
-       servo1.write(-90);      // Schließt den Briefkasten */
-   
-  }
-  if (Zaehler > 0){
-    digitalWrite(led , HIGH);
-  }
-  if (val2 == LOW)
-    {
-      Zaehler = 0;
-    }
- 
-  
-    
-  
->>>>>>> parent of fdbf372... LED-Hinzugefügt
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }
+}
 

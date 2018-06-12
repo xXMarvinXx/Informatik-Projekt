@@ -86,10 +86,10 @@ class LightCenterWindow(object):
         self.setup_content()
         
     def on_received(self, line):
-        if(line == 'y'):
-            self.btn_label_var.set('Post ist da !');
+        if(line == 'n'):
+            self.btn_label_var.set('Es ist keine Post da !');
         else :
-            self.btn_label_var.set('Es it keine Post da :( ');
+            self.btn_label_var.set('Es sind () Briefe gekommen.');
             
     def setup_window(self):
         self.window= tk.Tk()
@@ -102,7 +102,7 @@ class LightCenterWindow(object):
 
     def setup_content(self):
         self.btn_label_var= tk.StringVar(self.window)
-        self.btn_label_var.set("was zur Hölle ist happening");
+        self.btn_label_var.set('Es ist keine Post da !');
 
         self.btn_label = tk.Label(
             self.window,
@@ -110,8 +110,6 @@ class LightCenterWindow(object):
         )
 
         self.btn_label.pack()
-
-        
 
     def run(self):
         'Execute the tkinter mainloop to display the Light center window'

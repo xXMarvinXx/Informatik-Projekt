@@ -20,7 +20,6 @@ int val2 = 0; // VAriable zum lesen des Buttonstatus
 int servoAngle1 = 0; // servo position in degrees
 int inPin2 = 13; // Pushbutton Pin2. Öffnet den Briefkasten zum Rausehmen der Post
 int led = 12;
-int i = 0;
 
 void setup()
 {
@@ -36,36 +35,36 @@ void setup()
     Serial.println("...server is running");
 
 }
-
-
 void loop() {
-
-  millis();
-
   val1 = digitalRead(inPin1); //Auslesen ob Button gedrückt wurde.
   val2 = digitalRead(inPin2); // Auslesen ob Button zum rausnehmen der Briefe geöffnet wurde.
 
   if (val1 == LOW) //Wenn Button gedrückt wurde.
   {
     servo1.write(0);
-    /*timer1 = millis(); */
+    timer10 = millis(); 
     Zaehler ++;
-    /* if (millis() - timer1 >= 10000) {
-       servo1.write(+90);
-       timer10 = millis();
+    servo1.write(+90);
       }
-      if (millis() - timer10 >= 100000) {
-       servo1.write(-90);      // Schließt den Briefkasten */
+      if (millis() - timer10 >= 100000) { /* nach 10 Sekunden*/
+       servo1.write(-90);      // Schließt den Briefkasten 
+       esp_server.write("y");
    
   }
   if (Zaehler > 0){
-    digitalWrite(led , HIGH);
+    digitalWrite(led , HIGH); /* Wenn Post da ist lass die LED leuchten. */
   }
-  if (val2 == LOW)
+  if (val2 == LOW) /*Wenn reset Button gedrückt wurde */
     {
       Zaehler = 0;
+      /* setzte den Post-Zaehler auf 0 zurück */
+      if(Zaehler == 0)
+      {
+        digitalWrite (led , LOW);
+              /* Die Led ist aus wenn keine Post da ist .*/
+      }
     }
- 
+  
   
     
   

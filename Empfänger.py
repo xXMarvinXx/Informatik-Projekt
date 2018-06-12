@@ -3,6 +3,8 @@
 import tkinter as tk
 import socket as so
 
+
+
 class Arduino(object):
     def __init__(self, window, host, port, on_received):
         '''An abstraction for a network-connected Arduino.
@@ -46,10 +48,10 @@ class Arduino(object):
             self.rd_buff+= msg
 
         except so.error:
-            """ In non-blocking mode an exception is thrown
-             whenever no data is available.
-             Which error is OS-dependant so we have to catch
-             the generic socket.error exception. """
+            # In non-blocking mode an exception is thrown
+            # whenever no data is available.
+            # Which error is OS-dependant so we have to catch
+            # the generic socket.error exception.
 
             pass
 
@@ -59,8 +61,8 @@ class Arduino(object):
             line= line.decode('utf-8').strip()
             self.on_received(line)
 
-        """ Tell tkinter to call this function again
-         in 100ms """
+        # Tell tkinter to call this function again
+        # in 100ms
         self.after_event= self.window.after(
             100, self._periodic_socket_check
         )
@@ -70,12 +72,8 @@ class LightCenterWindow(object):
         """ Setup the empty window """
         self.setup_window()
 
-
-
-
         host= '192.168.43.217'
         port= '30303'
-
 
         self.arduino= Arduino(
             self.window,
@@ -84,13 +82,19 @@ class LightCenterWindow(object):
         )
 
         self.setup_content()
-        
     def on_received(self, line):
+<<<<<<< HEAD
         if(line == 'n'):
             self.btn_label_var.set('Es ist keine Post da !');
         else :
             self.btn_label_var.set('Es sind () Briefe gekommen.');
             
+=======
+        if(line == "n"):
+            self.btn_label_var.set(1);
+        else :
+            self.btn_label_var.set(0);   
+>>>>>>> parent of fdbf372... LED-Hinzugefügt
     def setup_window(self):
         self.window= tk.Tk()
         self.window.title('Poststatus')
@@ -102,7 +106,11 @@ class LightCenterWindow(object):
 
     def setup_content(self):
         self.btn_label_var= tk.StringVar(self.window)
+<<<<<<< HEAD
         self.btn_label_var.set('Es ist keine Post da !');
+=======
+        self.btn_label_var.set("Sie haben Post !");
+>>>>>>> parent of fdbf372... LED-Hinzugefügt
 
         self.btn_label = tk.Label(
             self.window,

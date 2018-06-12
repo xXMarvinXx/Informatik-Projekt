@@ -32,7 +32,7 @@ void setup()
   pinMode(led, OUTPUT);
 
   esp_server.begin(&esp_serial, "AndroidAP", "fdqz0801", 30303);
-    Serial.println("...server is running");
+  Serial.println("...server is running");
 
 }
 void loop() {
@@ -42,41 +42,46 @@ void loop() {
   if (val1 == LOW) //Wenn Button gedrückt wurde.
   {
     servo1.write(0);
-    timer10 = millis(); 
+    timer10 = millis();
+    timer1 = millis();
     Zaehler ++;
     servo1.write(+90);
-      }
-      if (millis() - timer10 >= 100000) { /* nach 10 Sekunden*/
-       servo1.write(-90);      // Schließt den Briefkasten 
-       esp_server.write("y");
-       timer10 = 0;
-   
   }
-  if (Zaehler > 0){
+  if (millis() - timer10 >= 100000) { /* nach 10 Sekunden*/
+    servo1.write(-90);      // Schließt den Briefkasten
+    timer10 = millis();
+
+  }
+  if (Zaehler > 0) {
     digitalWrite(led , HIGH); /* Wenn Post da ist lass die LED leuchten. */
   }
   if (val2 == LOW) /*Wenn reset Button gedrückt wurde */
+  {
+    Zaehler = 0;
+    /* setzte den Post-Zaehler auf 0 zurück */
+    if (Zaehler == 0)
     {
-      Zaehler = 0;
-      /* setzte den Post-Zaehler auf 0 zurück */
-      if(Zaehler == 0)
-      {
-        digitalWrite (led , LOW);
-              /* Die Led ist aus wenn keine Post da ist .*/
-      }
+      digitalWrite (led , LOW);
+      /* Die Led ist aus wenn keine Post da ist .*/
     }
-  
-  
-    
-  
-
-  
-  
-    
-    
-  
-  
+  }
+  if (millis() - timer1 >= 10000)
+  { 
+    esp_server.write('y');
+    timer1 = millis();
+  }
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+  }
 

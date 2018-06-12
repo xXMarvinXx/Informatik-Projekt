@@ -86,10 +86,11 @@ class LightCenterWindow(object):
         self.setup_content()
         
     def on_received(self, line):
-        if(line == "y"):
-            self.btn_label_var.set("Post ist da !");
+        if(line == 'y'):
+            self.btn_label_var.set('Post ist da !');
         else :
-            self.btn_label_var.set(" Es it keine Post da :( ");   
+            self.btn_label_var.set('Es it keine Post da :( ');
+            
     def setup_window(self):
         self.window= tk.Tk()
         self.window.title('Poststatus')
@@ -101,7 +102,7 @@ class LightCenterWindow(object):
 
     def setup_content(self):
         self.btn_label_var= tk.StringVar(self.window)
-        self.btn_label_var.set("Poststatus");
+        self.btn_label_var.set("was zur Hölle ist happening");
 
         self.btn_label = tk.Label(
             self.window,

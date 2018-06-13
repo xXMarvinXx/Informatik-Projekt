@@ -41,23 +41,27 @@ void loop() {
 
   if (val1 == LOW)/* Wenn Post da ist lass die LED leuchten. */ // Wenn Button gedrückt wurde.
   {
-    delay(100);
     servo1.write(0);
     Zaehler ++;
     servo1.write(+90);
     Serial.println("Banane");
     digitalWrite(led , HIGH);
     Serial.println(Zaehler);
-    esp_server.write("y\n");
     }
     // Schließt den Briefkasten
   
   if (val2 == LOW) /*Wenn reset Button gedrückt wurde */
   {
-    delay(100);
     Zaehler = 0;
     digitalWrite (led , LOW);
-    
+  }
+  if (Zaehler > 0)
+    {
+      esp_server.write("y\n");
+    }
+  else 
+  {
+    esp_server.write("n\n");
   }
 }
 

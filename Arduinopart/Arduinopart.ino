@@ -1,7 +1,7 @@
 /* Grundlagen der Informatik I, SoSe 18
  Projekt: Briefkasten  
  Autoren: Marvin Heise , Joel Kiener , Reza Toosi
- Matrikelnummer: 4381335 , 4444028 , :::::
+ Matrikelnummer: 4381335 , 4444028 , 2774454
  Datum: 14.06.18
  */
 /**@file */
@@ -71,11 +71,11 @@ void loop() //<! Start Loop
   }
   if (Zaehler > 0) 
     {
-      esp_server.write("y\n"); 
+      esp_server.write("y\n"); /** say y to the client */
     }
   else 
   {
-    esp_server.write("n\n"); 
+    esp_server.write("n\n");  /** say n to the client */
   }
 }
 

@@ -1,0 +1,162 @@
+\hypertarget{_arduinopart_8ino}{}\section{Arduinopart.\+ino File Reference}
+\label{_arduinopart_8ino}\index{Arduinopart.\+ino@{Arduinopart.\+ino}}
+{\ttfamily \#include $<$Servo.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Dumb\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Software\+Serial.\+h$>$}\newline
+Include dependency graph for Arduinopart.\+ino\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{_arduinopart_8ino__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Software\+Serial \mbox{\hyperlink{_arduinopart_8ino_af690b3a6882292855c4091ede8039998}{esp\+\_\+serial}} (3, 2)
+\item 
+void \mbox{\hyperlink{_arduinopart_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+\mbox{\Hypertarget{_arduinopart_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_arduinopart_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+void {\bfseries loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_arduinopart_8ino_a92309e3a6d185d9188757bac49168fe5}\label{_arduinopart_8ino_a92309e3a6d185d9188757bac49168fe5}} 
+\mbox{\hyperlink{class_esp_server}{Esp\+Server}} {\bfseries esp\+\_\+server}
+\item 
+Servo \mbox{\hyperlink{_arduinopart_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1}}
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_a774b9921c97f68fcf97c8c5b41cef667}{servo\+Pin1}} = 9
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_af3a750927bb0dac8a337245b7d570a6d}{Zaehler}} = 0
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_acb85827c057a298dc883f002985f7abf}{in\+Pin1}} = 11
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_a948167f8090ebc248e42325a827e9371}{val1}} = 0
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_acc3748d7169a359b540e60b40b6a8956}{val2}} = 0
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_ae94f1e0f6ff148a9f305e17a2c2894fb}{servo\+Angle1}} = 0
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_abc65d3b1e9a28ec21cbb4b1d23b77d10}{in\+Pin2}} = 13
+\item 
+int \mbox{\hyperlink{_arduinopart_8ino_a8c935df72ad1a7236c9879fb14aa0d43}{led}} = 12
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_arduinopart_8ino_af690b3a6882292855c4091ede8039998}\label{_arduinopart_8ino_af690b3a6882292855c4091ede8039998}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!esp\+\_\+serial@{esp\+\_\+serial}}
+\index{esp\+\_\+serial@{esp\+\_\+serial}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{esp\+\_\+serial()}{esp\_serial()}}
+{\footnotesize\ttfamily Software\+Serial esp\+\_\+serial (\begin{DoxyParamCaption}\item[{3}]{,  }\item[{2}]{ }\end{DoxyParamCaption})}
+
+The Wifi shield is connected to the Arduino-\/\+Pins 2 and 3 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{_arduinopart_8ino_af690b3a6882292855c4091ede8039998_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_arduinopart_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_arduinopart_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!setup@{setup}}
+\index{setup@{setup}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+$<$send to the Client on 9600 Baud$>$ ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ $<$send to the Serial\+Port on 9600 Baud$>$ ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ $<$ declare Servo\+Pin1 as a Servopin for the Library ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ $<$ set the poristion of the Servo\+Pin to 0 ~\newline
+~\newline
+~\newline
+~\newline
+ declare pushbutton as input ~\newline
+~\newline
+~\newline
+ declare pushbutton 2 as input ~\newline
+~\newline
+ declare L\+ED as Output ~\newline
+ Get and print the I\+P-\/\+Address to which the Python should connect to Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{_arduinopart_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_arduinopart_8ino_acb85827c057a298dc883f002985f7abf}\label{_arduinopart_8ino_acb85827c057a298dc883f002985f7abf}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!in\+Pin1@{in\+Pin1}}
+\index{in\+Pin1@{in\+Pin1}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{in\+Pin1}{inPin1}}
+{\footnotesize\ttfamily int in\+Pin1 = 11}
+
+define the Pin 11 for the 1. Pushbutton \mbox{\Hypertarget{_arduinopart_8ino_abc65d3b1e9a28ec21cbb4b1d23b77d10}\label{_arduinopart_8ino_abc65d3b1e9a28ec21cbb4b1d23b77d10}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!in\+Pin2@{in\+Pin2}}
+\index{in\+Pin2@{in\+Pin2}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{in\+Pin2}{inPin2}}
+{\footnotesize\ttfamily int in\+Pin2 = 13}
+
+define the Pin 13 for the Pushbutton 2 \mbox{\Hypertarget{_arduinopart_8ino_a8c935df72ad1a7236c9879fb14aa0d43}\label{_arduinopart_8ino_a8c935df72ad1a7236c9879fb14aa0d43}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!led@{led}}
+\index{led@{led}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{led}{led}}
+{\footnotesize\ttfamily int led = 12}
+
+define the Pin 12 for the L\+ED $>$ \mbox{\Hypertarget{_arduinopart_8ino_ac5d2bea44c6318454db0e2639a4efe95}\label{_arduinopart_8ino_ac5d2bea44c6318454db0e2639a4efe95}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!servo1@{servo1}}
+\index{servo1@{servo1}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{servo1}{servo1}}
+{\footnotesize\ttfamily Servo servo1}
+
+define servo1 as a Servo for the servo library \mbox{\Hypertarget{_arduinopart_8ino_ae94f1e0f6ff148a9f305e17a2c2894fb}\label{_arduinopart_8ino_ae94f1e0f6ff148a9f305e17a2c2894fb}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!servo\+Angle1@{servo\+Angle1}}
+\index{servo\+Angle1@{servo\+Angle1}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{servo\+Angle1}{servoAngle1}}
+{\footnotesize\ttfamily int servo\+Angle1 = 0}
+
+define the servo\+Angle as 0 as starting Angle \mbox{\Hypertarget{_arduinopart_8ino_a774b9921c97f68fcf97c8c5b41cef667}\label{_arduinopart_8ino_a774b9921c97f68fcf97c8c5b41cef667}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!servo\+Pin1@{servo\+Pin1}}
+\index{servo\+Pin1@{servo\+Pin1}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{servo\+Pin1}{servoPin1}}
+{\footnotesize\ttfamily int servo\+Pin1 = 9}
+
+define Pin 9 as the Servo Pin \mbox{\Hypertarget{_arduinopart_8ino_a948167f8090ebc248e42325a827e9371}\label{_arduinopart_8ino_a948167f8090ebc248e42325a827e9371}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!val1@{val1}}
+\index{val1@{val1}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{val1}{val1}}
+{\footnotesize\ttfamily int val1 = 0}
+
+define the val1 for the Pushbutton 1 \mbox{\Hypertarget{_arduinopart_8ino_acc3748d7169a359b540e60b40b6a8956}\label{_arduinopart_8ino_acc3748d7169a359b540e60b40b6a8956}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!val2@{val2}}
+\index{val2@{val2}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{val2}{val2}}
+{\footnotesize\ttfamily int val2 = 0}
+
+define the val2 for the Pushbutton 2 \mbox{\Hypertarget{_arduinopart_8ino_af3a750927bb0dac8a337245b7d570a6d}\label{_arduinopart_8ino_af3a750927bb0dac8a337245b7d570a6d}} 
+\index{Arduinopart.\+ino@{Arduinopart.\+ino}!Zaehler@{Zaehler}}
+\index{Zaehler@{Zaehler}!Arduinopart.\+ino@{Arduinopart.\+ino}}
+\subsubsection{\texorpdfstring{Zaehler}{Zaehler}}
+{\footnotesize\ttfamily int Zaehler = 0}
+
+define a Counter for how often the Mailbox has been opened 
